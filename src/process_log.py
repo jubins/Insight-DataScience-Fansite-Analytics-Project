@@ -4,7 +4,7 @@
 @GitHub: https://www.github.com/jubins
 #!Submission for: Insight-DataEngineering Challenge
 
-#Dependencies: To run this code you need Python version 3.x and Pandas. Also set correct paths for Input and Output files below.
+#Dependencies: To run this code you need Python version 3.x and Pandas.
 '''
 import pandas as pd
 import re

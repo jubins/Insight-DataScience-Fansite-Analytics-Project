@@ -19,7 +19,7 @@ To implement this feature I have counted the frequency of active hosts.
 Identify the top 10 resources on the site that consume the most bandwidth. Bandwidth consumption can be extrapolated from bytes sent over the network and the frequency by which they were accessed.
 
 ### Feature 3 
-To implement this feature I am checking all the timestamps from in each 60 minute window first timestamp value till the last timestamp in the file, with optimizations, however since I am checking for each window I am incrementing by 1second so this takes some time on big files. However, executes qickly on smaller ones.
+To implement this feature I am checking all the timestamps in each 60 minute window first timestamp value till the last timestamp in the file, with optimizations, however since I am checking for each window I am incrementing by 1second so this takes some time on big files. However, executes qickly on smaller ones.
 
 ### Feature 4 
 For this feature I am first checking the failed logins in 20 seconds that have 401 reply code after that I am blocking all host for 5 minutes.
