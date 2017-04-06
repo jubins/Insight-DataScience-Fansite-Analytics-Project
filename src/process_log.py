@@ -10,13 +10,17 @@ import pandas as pd
 import re
 import datetime
 import time
+import sys
+
 start = time.time()
 #copy the file location and readlines
-inputfile = 'C:/Users/jubin/Documents/Python Scripts/fansite-analytics-challenge-master/log_input/log.txt'
-testfile = 'C:/Users/jubin/Documents/Python Scripts/fansite-analytics-challenge-master/insight_testsuite/tests/test_features/log_input/log.txt'
-outputfile = 'C:/Users/jubin/Documents/Python Scripts/fansite-analytics-challenge-master/log_output/'
+input_file = sys.argv[1]
+host_file = sys.argv[2]
+hours_file = sys.argv[3]
+resources_file = sys.argv[4]
+blocked_file = sys.argv[5]
 
-datafile= open(file=testfile,
+datafile= open(file=input_file,
                   encoding='utf-8',
                   errors='ignore').readlines()
 
@@ -56,7 +60,7 @@ df = pd.DataFrame({'host':host,
 #Feature 1: List the top 10 most active host/IP addresses that have accessed the site.
 start = time.time()
 host_df = df['host'].value_counts().head(10)
-host_df.to_csv(outputfile+'hosts.txt', header=None, index=host_df.index.values.all(), sep=',', mode='w')
+host_df.to_csv(host_file, header=None, index=host_df.index.values.all(), sep=',', mode='w')
 
 
 #Feature 2: Identify the 10 resources that consume the most bandwidth on the site.
@@ -65,7 +69,7 @@ bytesdata = df[['request', 'bytes']].sort_values(by='bytes',ascending=False)
 resources = bytesdata.merge(frequency, on='request', how='inner', suffixes=('bytes','frequency'))
 resources['totalbytes'] = resources['bytesbytes']*resources['bytesfrequency']
 resources = resources.sort_values('totalbytes', ascending=False).request.drop_duplicates()[:10]
-resources.to_csv(outputfile+'resources.txt', header=None, index=None, mode='w')
+resources.to_csv(hours_file, header=None, index=None, mode='w')
 
 
 
@@ -104,7 +108,7 @@ while (start_window != end_time):
 
 sorted_desc = sorted(busiest_hours, key=busiest_hours.get, reverse=True)
 
-file = open(outputfile+"hours.txt", "w")
+file = open(resources_file, "w")
 for h in sorted_desc[:10]:
     file.write(h+","+str(busiest_hours[h])+"\n")
 file.close()
@@ -156,7 +160,7 @@ def block(host):
 list(map(block, failed_IP_list))
 blocked_host = sum(blocked_host, [])
 
-with open(outputfile + 'blocked.txt', 'w') as f:
+with open(blocked_file, 'w') as f:
     f.writelines(datafile[index] for index in blocked_host)
 
 #print ("Total time: {0} seconds".format(time.time()-start))
