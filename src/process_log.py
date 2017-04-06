@@ -159,5 +159,5 @@ blocked_host = sum(blocked_host, [])
 with open(outputfile + 'blocked.txt', 'w') as f:
     f.writelines(datafile[index] for index in blocked_host)
 
-print ("Total time: {0} seconds".format(time.time()-start))
+#print ("Total time: {0} seconds".format(time.time()-start))
 #Thank you for this great challenge!
