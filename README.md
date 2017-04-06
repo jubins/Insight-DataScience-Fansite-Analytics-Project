@@ -15,31 +15,6 @@ I am first cleaning the log file and taking all the required features like host,
 ### Feature 1: 
 To implement this feature I have counted the frequency of active hosts.
 
-### Feature 2: 
-Identify the 10 resources that consume the most bandwidth on the site
-For this feature I have counted the bytes frequency and multiplied this frequency with maximum bytes consumed by each resource, and sorted the result in descending order. Because question asks for resources consuming most bandwidth.
-
-### Feature 3:
-List the top 10 busiest (or most frequently visited) 60-minute periods 
-
-### Feature 4: 
-Detect patterns of three failed login attempts from the same IP address over 20 seconds so that all further attempts to the site can be blocked for 5 minutes. Log those possible security breaches.
-
-
-### Other considerations and optional features
-It's critical that these features don't take too long to run. For example, if it took too long to detect three failed login attempts, further traffic from the same IP address couldn’t be blocked immediately, and that would present a security breach.
-This dataset is inspired by real NASA web traffic, which is very similar to server logs from e-commerce and other sites. Monitoring web traffic and providing these analytics is a real business need, but it’s not the only thing you can do with the data. Feel free to implement additional features that you think might be useful.
-
-## Details of Implementation
-With this coding challenge, you should demonstrate a strong understanding of computer science fundamentals. We won't be wowed by your knowledge of various available software libraries, but will be impressed by your ability to pick and use the best data structures and algorithms for the job.
-
-We're looking for clean, well-thought-out code that correctly implements the desired features in an optimized way and highlights your ability to write production-quality code.
-
-We also want to see how you use your programming skills to solve business problems. At a minimum, you should implement the four required features, but feel free to expand upon this challenge or add other features you think would prevent fraud and further business goals. Be sure to document these add-ons so we know to look for them.
-
-### Feature 1 
-List in descending order the top 10 most active hosts/IP addresses that have accessed the site.
-
 ### Feature 2 
 Identify the top 10 resources on the site that consume the most bandwidth. Bandwidth consumption can be extrapolated from bytes sent over the network and the frequency by which they were accessed.
 
